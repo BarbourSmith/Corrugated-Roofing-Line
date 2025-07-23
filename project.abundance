@@ -1,16 +1,102 @@
 {
     "atomType": "Molecule",
-    "name": "Corrugated Roofing Line",
+    "name": "Corrugated-Roofing-Line",
     "x": 0,
     "y": 0,
     "uniqueID": "ed9cd772-5603-476b-a930-f79dd0f51d32",
-    "ioValues": [],
+    "ioValues": [
+        {
+            "name": "Number",
+            "ioValue": 10
+        },
+        {
+            "name": "Height",
+            "ioValue": 40
+        }
+    ],
     "description": "Molecules provide an organizational structure to contain atoms. Double click on a molecule to enter it. Use the up arrow in the upper right hand corner of the screen to go up one level.",
     "topLevel": true,
-    "allAtoms": [],
-    "allConnectors": [],
+    "allAtoms": [
+        {
+            "atomType": "Output",
+            "name": "Output",
+            "x": 0.98,
+            "y": 0.5,
+            "uniqueID": "c11b735a-3470-48ab-a2d4-5002e85e7346",
+            "ioValues": [
+                {
+                    "name": "number or geometry",
+                    "ioValue": "2d27944e-e899-4e8f-956d-d4d30191a04e"
+                }
+            ],
+            "description": "Connect geometry here to make it available in the next level up. "
+        },
+        {
+            "atomType": "Code",
+            "name": "Code",
+            "x": 0.39616402116402116,
+            "y": 0.4722222222222222,
+            "uniqueID": "2d27944e-e899-4e8f-956d-d4d30191a04e",
+            "ioValues": [
+                {
+                    "name": "number",
+                    "ioValue": 10
+                },
+                {
+                    "name": "height",
+                    "ioValue": 40
+                }
+            ],
+            "description": "Defines a Replicad code block.",
+            "codeVersion": 1,
+            "code": " \n      //Inputs:[number, height]\n      //This defines the molecules inputs and creates variables with the same names which can be referenced in the code\n      \n      let factor = 2;\n      const period = 72;\n      const amplitude = 19 / 2;\n      const xScale = period / (2 * Math.PI);\n      const nPeriods = number; // ð Number of periods to repeat\n      \n      let shape = replicad.draw();\n      \n      for (let i = 0; i < nPeriods; i++) {\n        let offsetX = i * period;\n      \n        // First spline: 0 to Ï (up and back down)\n        shape = shape.smoothSplineTo(\n          [offsetX + Math.PI * xScale, 0 * amplitude],\n          {\n            startTangent: 45,         // Going up at start\n            startFactor: factor,\n            endTangent: -45,          // Coming down at Ï\n            endFactor: factor\n          }\n        )\n        // Second spline: Ï to 2Ï (down and back up)\n        .smoothSplineTo(\n          [offsetX + 2 * Math.PI * xScale, 0 * amplitude],\n          {\n            startTangent: -45,        // Going down at Ï\n            startFactor: factor,\n            endTangent: 45,           // Coming up at 2Ï\n            endFactor: factor\n          }\n        );\n      }\n      \n      // Add base lines and close shape\n      shape = shape\n        .lineTo([nPeriods * period, -height])  // Right-bottom corner\n        .lineTo([0, -height])                  // Left-bottom corner\n        .close();                          // Close path\n\n      const newPlane = new replicad.Plane().pivot(0, 'Y');\n      \n      //For our new geometry we need to define the tags, color, plane, etc\n      let shape2 = {\n          geometry: [shape], \n          tags: [\"aTag\"],\n          color: '#A3CE5B',\n          plane: newPlane,\n          bom: []\n      }\n      \n      //Then we can return our created shape in just the same way\n      return shape2\n      "
+        },
+        {
+            "atomType": "Input",
+            "name": "Number",
+            "x": 0.029699999999999997,
+            "y": 0.48055555555555557,
+            "uniqueID": "279f19db-7e1c-4bcc-bbc4-cf3aac56fcfb",
+            "ioValues": [],
+            "description": "Adds an input to the parent molecule. If the parent molecule is the top level of the project then the input will be available when the project is shared or imported into another project. Name is editable",
+            "type": "number"
+        },
+        {
+            "atomType": "Input",
+            "name": "Height",
+            "x": 0.029699999999999997,
+            "y": 0.7638888888888888,
+            "uniqueID": "c34697e4-5c4c-413d-b672-a54fcb54945d",
+            "ioValues": [],
+            "description": "Adds an input to the parent molecule. If the parent molecule is the top level of the project then the input will be available when the project is shared or imported into another project. Name is editable",
+            "type": "number"
+        }
+    ],
+    "allConnectors": [
+        {
+            "ap1Name": "geometry",
+            "ap2Name": "number or geometry",
+            "ap2Primary": false,
+            "ap1ID": "2d27944e-e899-4e8f-956d-d4d30191a04e",
+            "ap2ID": "c11b735a-3470-48ab-a2d4-5002e85e7346"
+        },
+        {
+            "ap1Name": "number or geometry",
+            "ap2Name": "number",
+            "ap2Primary": false,
+            "ap1ID": "279f19db-7e1c-4bcc-bbc4-cf3aac56fcfb",
+            "ap2ID": "2d27944e-e899-4e8f-956d-d4d30191a04e"
+        },
+        {
+            "ap1Name": "number or geometry",
+            "ap2Name": "height",
+            "ap2Primary": false,
+            "ap1ID": "c34697e4-5c4c-413d-b672-a54fcb54945d",
+            "ap2ID": "2d27944e-e899-4e8f-956d-d4d30191a04e"
+        }
+    ],
     "unitsKey": "MM",
     "fileTypeVersion": 1,
-    "compiledBom": {},
+    "compiledBom": [],
     "filetypeVersion": 1
 }
