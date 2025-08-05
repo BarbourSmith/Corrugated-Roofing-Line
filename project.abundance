@@ -70,139 +70,9 @@
             "ioValues": [],
             "description": "Adds an input to the parent molecule. If the parent molecule is the top level of the project then the input will be available when the project is shared or imported into another project. Name is editable",
             "type": "number"
-        },
-        {
-            "atomType": "Rectangle",
-            "name": "Rectangle",
-            "x": 0.4774624373956594,
-            "y": 0.7743732590529249,
-            "uniqueID": "2fa9a108-f78f-4445-83d8-e27c8ddd1348",
-            "ioValues": [
-                {
-                    "name": "x length",
-                    "ioValue": 180
-                },
-                {
-                    "name": "y length",
-                    "ioValue": 18
-                }
-            ],
-            "description": "Creates a new rectangle."
-        },
-        {
-            "atomType": "Move",
-            "name": "Move",
-            "x": 0.6415343915343915,
-            "y": 0.7465181058495821,
-            "uniqueID": "823f8a56-1e40-4a25-b070-3611f862d135",
-            "ioValues": [
-                {
-                    "name": "geometry",
-                    "ioValue": "2fa9a108-f78f-4445-83d8-e27c8ddd1348"
-                },
-                {
-                    "name": "xDist",
-                    "ioValue": 123
-                },
-                {
-                    "name": "yDist",
-                    "ioValue": 0
-                },
-                {
-                    "name": "zDist",
-                    "ioValue": 0
-                }
-            ],
-            "description": "Moves a shape laterally in X, Y, Z."
-        },
-        {
-            "atomType": "Extrude",
-            "name": "Extrude",
-            "x": 0.6494156928213689,
-            "y": 0.2590529247910863,
-            "uniqueID": "46841488-f949-4201-939e-0c8a6a35c391",
-            "ioValues": [
-                {
-                    "name": "geometry",
-                    "ioValue": "2d27944e-e899-4e8f-956d-d4d30191a04e"
-                },
-                {
-                    "name": "height",
-                    "ioValue": 11
-                }
-            ],
-            "description": "Extrudes a 2D shape. Input can be negitive. "
-        },
-        {
-            "atomType": "Gcode",
-            "name": "Gcode",
-            "x": 0.8763227513227514,
-            "y": 0.22284122562674097,
-            "uniqueID": "b080aa59-d445-4b03-ab6f-be9e7407ea55",
-            "ioValues": [
-                {
-                    "name": "Geometry",
-                    "ioValue": "0f42b242-67f7-4a42-9820-4a61bb12ac2e"
-                },
-                {
-                    "name": "Tool Size",
-                    "ioValue": 6.35
-                },
-                {
-                    "name": "Passes",
-                    "ioValue": 1
-                },
-                {
-                    "name": "Speed",
-                    "ioValue": 1500
-                },
-                {
-                    "name": "Cut Through",
-                    "ioValue": 2.5
-                },
-                {
-                    "name": "Part Name",
-                    "ioValue": "Line 79 35 R"
-                }
-            ],
-            "description": "Generates Maslow gcode from the input geometry. For single parts, generates one gcode file. For assemblies, extracts individual parts, sorts them left to right based on bounding boxes, generates gcode for each part sequentially, and concatenates the results into one file.",
-            "partName": "Line 79 35 R"
-        },
-        {
-            "atomType": "Rotate",
-            "name": "Rotate",
-            "x": 0.7493386243386244,
-            "y": 0.3788300835654596,
-            "uniqueID": "0f42b242-67f7-4a42-9820-4a61bb12ac2e",
-            "ioValues": [
-                {
-                    "name": "geometry",
-                    "ioValue": "46841488-f949-4201-939e-0c8a6a35c391"
-                },
-                {
-                    "name": "x-axis degrees",
-                    "ioValue": 0
-                },
-                {
-                    "name": "y-axis degrees",
-                    "ioValue": 0
-                },
-                {
-                    "name": "z-axis degrees",
-                    "ioValue": 90
-                }
-            ],
-            "description": "Rotates the input geometry around the X, Y, or Z axis. Inputs are degrees."
         }
     ],
     "allConnectors": [
-        {
-            "ap1Name": "geometry",
-            "ap2Name": "geometry",
-            "ap2Primary": true,
-            "ap1ID": "2d27944e-e899-4e8f-956d-d4d30191a04e",
-            "ap2ID": "46841488-f949-4201-939e-0c8a6a35c391"
-        },
         {
             "ap1Name": "geometry",
             "ap2Name": "number or geometry",
@@ -223,27 +93,6 @@
             "ap2Primary": false,
             "ap1ID": "c34697e4-5c4c-413d-b672-a54fcb54945d",
             "ap2ID": "2d27944e-e899-4e8f-956d-d4d30191a04e"
-        },
-        {
-            "ap1Name": "geometry",
-            "ap2Name": "geometry",
-            "ap2Primary": true,
-            "ap1ID": "2fa9a108-f78f-4445-83d8-e27c8ddd1348",
-            "ap2ID": "823f8a56-1e40-4a25-b070-3611f862d135"
-        },
-        {
-            "ap1Name": "geometry",
-            "ap2Name": "geometry",
-            "ap2Primary": true,
-            "ap1ID": "46841488-f949-4201-939e-0c8a6a35c391",
-            "ap2ID": "0f42b242-67f7-4a42-9820-4a61bb12ac2e"
-        },
-        {
-            "ap1Name": "geometry",
-            "ap2Name": "Geometry",
-            "ap2Primary": false,
-            "ap1ID": "0f42b242-67f7-4a42-9820-4a61bb12ac2e",
-            "ap2ID": "b080aa59-d445-4b03-ab6f-be9e7407ea55"
         }
     ],
     "unitsKey": "MM",
