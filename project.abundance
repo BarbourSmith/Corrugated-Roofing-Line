@@ -34,8 +34,8 @@
         {
             "atomType": "Code",
             "name": "Code",
-            "x": 0.39814814814814814,
-            "y": 0.5097493036211699,
+            "x": 0.4027777777777778,
+            "y": 0.5069637883008357,
             "uniqueID": "2d27944e-e899-4e8f-956d-d4d30191a04e",
             "ioValues": [
                 {
@@ -49,7 +49,7 @@
             ],
             "description": "Defines a Replicad code block.",
             "codeVersion": 1,
-            "code": " \n      //Inputs:[number, height]\n      //This defines the molecules inputs and creates variables with the same names which can be referenced in the code\n      \n      let factor = 2;\n      const period = 76;\n      const xScale = period / (2 * Math.PI);\n      const nPeriods = number; // ÃÂ°ÃÂÃÂÃÂ Number of periods to repeat\n      const angle = 40;\n      \n      let shape = replicad.draw();\n      \n      for (let i = 0; i < nPeriods; i++) {\n        let offsetX = i * period;\n      \n        // First spline: 0 to ÃÂÃÂ (up and back down)\n        shape = shape.smoothSplineTo(\n          [offsetX + Math.PI * xScale, 0],\n          {\n            startTangent: angle,         // Going up at start\n            startFactor: factor,\n            endTangent: -1*angle,          // Coming down at ÃÂÃÂ\n            endFactor: factor\n          }\n        )\n        // Second spline: ÃÂÃÂ to 2ÃÂÃÂ (down and back up)\n        .smoothSplineTo(\n          [offsetX + 2 * Math.PI * xScale, 0],\n          {\n            startTangent: -1*angle,        // Going down at ÃÂÃÂ\n            startFactor: factor,\n            endTangent: angle,           // Coming up at 2ÃÂÃÂ\n            endFactor: factor\n          }\n        );\n      }\n      \n      // Add base lines and close shape\n      shape = shape\n        .lineTo([nPeriods * period, -height])  // Right-bottom corner\n        .lineTo([0, -height])                  // Left-bottom corner\n        .close();                          // Close path\n\n      const newPlane = new replicad.Plane().pivot(0, 'Y');\n      \n      //For our new geometry we need to define the tags, color, plane, etc\n      let shape2 = {\n          geometry: [shape], \n          tags: [\"aTag\"],\n          color: '#A3CE5B',\n          plane: newPlane,\n          bom: []\n      }\n      \n      //Then we can return our created shape in just the same way\n      return shape2\n      "
+            "code": " \n      //Inputs:[number, height]\n      //This defines the molecules inputs and creates variables with the same names which can be referenced in the code\n      \n      let factor = 2;\n      const period = 76;\n      const xScale = period / (2 * Math.PI);\n      const nPeriods = number; // ÃÂ°ÃÂÃÂÃÂ Number of periods to repeat\n      const angle = 35;\n      \n      let shape = replicad.draw();\n      \n      for (let i = 0; i < nPeriods; i++) {\n        let offsetX = i * period;\n      \n        // First spline: 0 to ÃÂÃÂ (up and back down)\n        shape = shape.smoothSplineTo(\n          [offsetX + Math.PI * xScale, 0],\n          {\n            startTangent: angle,         // Going up at start\n            startFactor: factor,\n            endTangent: -1*angle,          // Coming down at ÃÂÃÂ\n            endFactor: factor\n          }\n        )\n        // Second spline: ÃÂÃÂ to 2ÃÂÃÂ (down and back up)\n        .smoothSplineTo(\n          [offsetX + 2 * Math.PI * xScale, 0],\n          {\n            startTangent: -1*angle,        // Going down at ÃÂÃÂ\n            startFactor: factor,\n            endTangent: angle,           // Coming up at 2ÃÂÃÂ\n            endFactor: factor\n          }\n        );\n      }\n      \n      // Add base lines and close shape\n      shape = shape\n        .lineTo([nPeriods * period, -height])  // Right-bottom corner\n        .lineTo([0, -height])                  // Left-bottom corner\n        .close();                          // Close path\n\n      const newPlane = new replicad.Plane().pivot(0, 'Y');\n      \n      //For our new geometry we need to define the tags, color, plane, etc\n      let shape2 = {\n          geometry: [shape], \n          tags: [\"aTag\"],\n          color: '#A3CE5B',\n          plane: newPlane,\n          bom: []\n      }\n      \n      //Then we can return our created shape in just the same way\n      return shape2\n      "
         },
         {
             "atomType": "Input",
@@ -92,8 +92,8 @@
         {
             "atomType": "Move",
             "name": "Move",
-            "x": 0.6385642737896494,
-            "y": 0.7270194986072424,
+            "x": 0.6415343915343915,
+            "y": 0.7465181058495821,
             "uniqueID": "823f8a56-1e40-4a25-b070-3611f862d135",
             "ioValues": [
                 {
@@ -162,11 +162,11 @@
                 },
                 {
                     "name": "Part Name",
-                    "ioValue": "Line 79 18 R"
+                    "ioValue": "Line 79 35 R"
                 }
             ],
             "description": "Generates Maslow gcode from the input geometry. For single parts, generates one gcode file. For assemblies, extracts individual parts, sorts them left to right based on bounding boxes, generates gcode for each part sequentially, and concatenates the results into one file.",
-            "partName": "Line 79 18 R"
+            "partName": "Line 79 35 R"
         },
         {
             "atomType": "Rotate",
