@@ -136,13 +136,13 @@
         {
             "atomType": "Gcode",
             "name": "Gcode",
-            "x": 0.8030050083472454,
-            "y": 0.23119777158774377,
+            "x": 0.8763227513227514,
+            "y": 0.22284122562674097,
             "uniqueID": "b080aa59-d445-4b03-ab6f-be9e7407ea55",
             "ioValues": [
                 {
                     "name": "Geometry",
-                    "ioValue": "46841488-f949-4201-939e-0c8a6a35c391"
+                    "ioValue": "0f42b242-67f7-4a42-9820-4a61bb12ac2e"
                 },
                 {
                     "name": "Tool Size",
@@ -162,27 +162,53 @@
                 },
                 {
                     "name": "Part Name",
-                    "ioValue": "Line 79 18"
+                    "ioValue": "Line 79 18 R"
                 }
             ],
             "description": "Generates Maslow gcode from the input geometry. For single parts, generates one gcode file. For assemblies, extracts individual parts, sorts them left to right based on bounding boxes, generates gcode for each part sequentially, and concatenates the results into one file.",
-            "partName": "Line 79 18"
+            "partName": "Line 79 18 R"
+        },
+        {
+            "atomType": "Rotate",
+            "name": "Rotate",
+            "x": 0.7493386243386244,
+            "y": 0.3788300835654596,
+            "uniqueID": "0f42b242-67f7-4a42-9820-4a61bb12ac2e",
+            "ioValues": [
+                {
+                    "name": "geometry",
+                    "ioValue": "46841488-f949-4201-939e-0c8a6a35c391"
+                },
+                {
+                    "name": "x-axis degrees",
+                    "ioValue": 0
+                },
+                {
+                    "name": "y-axis degrees",
+                    "ioValue": 0
+                },
+                {
+                    "name": "z-axis degrees",
+                    "ioValue": 90
+                }
+            ],
+            "description": "Rotates the input geometry around the X, Y, or Z axis. Inputs are degrees."
         }
     ],
     "allConnectors": [
-        {
-            "ap1Name": "geometry",
-            "ap2Name": "number or geometry",
-            "ap2Primary": false,
-            "ap1ID": "2d27944e-e899-4e8f-956d-d4d30191a04e",
-            "ap2ID": "c11b735a-3470-48ab-a2d4-5002e85e7346"
-        },
         {
             "ap1Name": "geometry",
             "ap2Name": "geometry",
             "ap2Primary": true,
             "ap1ID": "2d27944e-e899-4e8f-956d-d4d30191a04e",
             "ap2ID": "46841488-f949-4201-939e-0c8a6a35c391"
+        },
+        {
+            "ap1Name": "geometry",
+            "ap2Name": "number or geometry",
+            "ap2Primary": false,
+            "ap1ID": "2d27944e-e899-4e8f-956d-d4d30191a04e",
+            "ap2ID": "c11b735a-3470-48ab-a2d4-5002e85e7346"
         },
         {
             "ap1Name": "number or geometry",
@@ -207,9 +233,16 @@
         },
         {
             "ap1Name": "geometry",
+            "ap2Name": "geometry",
+            "ap2Primary": true,
+            "ap1ID": "46841488-f949-4201-939e-0c8a6a35c391",
+            "ap2ID": "0f42b242-67f7-4a42-9820-4a61bb12ac2e"
+        },
+        {
+            "ap1Name": "geometry",
             "ap2Name": "Geometry",
             "ap2Primary": false,
-            "ap1ID": "46841488-f949-4201-939e-0c8a6a35c391",
+            "ap1ID": "0f42b242-67f7-4a42-9820-4a61bb12ac2e",
             "ap2ID": "b080aa59-d445-4b03-ab6f-be9e7407ea55"
         }
     ],
